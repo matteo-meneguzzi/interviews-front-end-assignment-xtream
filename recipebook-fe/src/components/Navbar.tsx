@@ -1,11 +1,17 @@
-import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
 const Navbar = () => {
 	return (
 		<>
-			<nav>
-				<Link to='create-recipe'>Add Recipe</Link>
+			<nav className='bg-gray-800 w-full min-h-10 flex items-center'>
+				<ul className='flex justify-start'>
+					<Link to='recipes' className='text-white mx-6'>
+						Recipe List
+					</Link>
+					<Link to='create-recipe' className='text-white'>
+						Add Recipe
+					</Link>
+				</ul>
 			</nav>
 
 			<Outlet />
