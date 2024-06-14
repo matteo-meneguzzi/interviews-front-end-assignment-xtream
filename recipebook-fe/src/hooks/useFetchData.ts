@@ -34,7 +34,7 @@ const useFetchData = <T> (fetchFunction: () => Promise<T>) =>
         fetchData();
     }, [fetchData]);
 
-    return { data, error, loading, refetch: fetchData };
+    return { data, error, loading, fetchData };
 };
 
 export default useFetchData;

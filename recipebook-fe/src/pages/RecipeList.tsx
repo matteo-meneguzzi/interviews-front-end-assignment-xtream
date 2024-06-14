@@ -1,16 +1,11 @@
-import { useGetRecipes } from "../hooks/useQueries";
+import { Main, Sidebar } from "../components";
 
 const RecipeList = () => {
-	const { data, error } = useGetRecipes();
-	console.log("ERROR IN COMPONENT: ", error);
-
 	return (
-		<>
-			{data?.map((recipe) => (
-				<div key={recipe.id}>{recipe.name}</div>
-			))}
-			{error !== undefined && <div>{error}</div>}
-		</>
+		<div className='flex flex-grow overflow-hidden'>
+			<Sidebar />
+			<Main />
+		</div>
 	);
 };
 

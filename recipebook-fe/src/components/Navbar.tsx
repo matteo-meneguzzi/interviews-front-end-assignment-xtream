@@ -8,7 +8,7 @@ const Navbar = () => {
 					<Link to='recipes' className='text-white mx-6'>
 						Recipe List
 					</Link>
-					<Link to='create-recipe' className='text-white'>
+					<Link to='add-recipe' className='text-white'>
 						Add Recipe
 					</Link>
 				</ul>
