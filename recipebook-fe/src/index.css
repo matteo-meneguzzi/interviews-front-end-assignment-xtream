@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add this to your global CSS file */
+.scroll-container {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.scroll-container:hover {
+	overflow-y: scroll;
+}
+
+/* Hide the scrollbar by default */
+.scroll-container::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+/* Show the scrollbar when hovering */
+.scroll-container:hover::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+
+/* Customize the scrollbar track and thumb */
+.scroll-container:hover::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 5px;
+}
+
+.scroll-container:hover::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 5px;
+}
+
+.scroll-container:hover::-webkit-scrollbar-thumb:hover {
+	background: #555;
+	border-radius: 5px;
+}

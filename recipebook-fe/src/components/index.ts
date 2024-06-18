@@ -5,5 +5,6 @@ import Main from "./Main";
 import CardList from "./CardList";
 import Paginator from "./Paginator";
 import Card from "./Card";
+import Input from "./Input";
 
-export { Navbar, Footer, Sidebar, Main, CardList, Paginator, Card }
+export { Navbar, Footer, Sidebar, Main, CardList, Paginator, Card, Input }
