@@ -24,7 +24,7 @@ const Dropdown = ({
 	return (
 		<>
 			<label className='block text-gray-700 mb-2'>Select category:</label>
-			{error && <Alert children={error} />}
+			{error && <Alert children={error} type={"error"} />}
 			{!error && (
 				<div className='relative mb-2'>
 					<select
@@ -32,7 +32,7 @@ const Dropdown = ({
 						value={value}
 						onChange={onChange}
 						className={`${
-							value.length === 1 ? "text-gray-900" : "text-gray-400"
+							value.length >= 1 ? "text-gray-900" : "text-gray-400"
 						} appearance-none w-full p-2 rounded border border-gray-300 pr-8 bg-white hover:bg-gray-100 focus:text-gray-700 focus:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition`}
 					>
 						<option value=''>{placeholder}</option>

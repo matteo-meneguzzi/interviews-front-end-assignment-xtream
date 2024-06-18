@@ -6,5 +6,7 @@ import CardList from "./CardList";
 import Paginator from "./Paginator";
 import Card from "./Card";
 import Input from "./Input";
+import Button from "./Button";
+import Alert from "./Alert";
 
-export { Navbar, Footer, Sidebar, Main, CardList, Paginator, Card, Input }
+export { Navbar, Footer, Sidebar, Main, CardList, Paginator, Card, Input, Button, Alert }

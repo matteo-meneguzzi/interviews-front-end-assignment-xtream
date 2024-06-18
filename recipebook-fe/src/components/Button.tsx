@@ -7,7 +7,7 @@ interface ButtonProps {
 	children: React.ReactNode; // Content inside the button
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick, className, children }) => {
+const Button = ({ onClick, className, children }: ButtonProps) => {
 	return (
 		<button
 			onClick={onClick}

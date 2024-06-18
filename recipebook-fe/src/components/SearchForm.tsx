@@ -6,7 +6,6 @@ import {
 } from "../hooks/useQueries";
 import Button from "./Button";
 import Input from "./Input";
-import { ChangeEvent } from "react";
 
 interface SearchFormProps {
 	form: {
@@ -31,7 +30,7 @@ const SearchForm = ({ form, handleChange, handleSubmit }: SearchFormProps) => {
 			onSubmit={handleSubmit}
 			className='flex flex-col justify-between flex-grow overflow-hidden'
 		>
-			<div className='flex flex-col px-4 mb-4 h-full scroll-container flex  '>
+			<div className='flex flex-col px-4 mb-4 h-full flex'>
 				<Input
 					label='Search for name'
 					value={form.name}
@@ -53,30 +52,6 @@ const SearchForm = ({ form, handleChange, handleSubmit }: SearchFormProps) => {
 					placeholder='Select a diet'
 					options={diets}
 					error={dietListError}
-					onChange={handleChange}
-				/>
-				<Dropdown
-					id='difficultyId'
-					value={form.difficultyId}
-					placeholder='Select a difficulty'
-					options={difficulties}
-					error={difficultyListError}
-					onChange={handleChange}
-				/>
-				<Dropdown
-					id='difficultyId'
-					value={form.difficultyId}
-					placeholder='Select a difficulty'
-					options={difficulties}
-					error={difficultyListError}
-					onChange={handleChange}
-				/>
-				<Dropdown
-					id='difficultyId'
-					value={form.difficultyId}
-					placeholder='Select a difficulty'
-					options={difficulties}
-					error={difficultyListError}
 					onChange={handleChange}
 				/>
 				<Dropdown

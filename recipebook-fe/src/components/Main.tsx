@@ -29,11 +29,11 @@ const Main = ({
 			<div className='p-4 flex justify-between items-center bg-gray-400'>
 				<h1 className='text-xl font-bold'>Results</h1>
 				<button className='bg-blue-500 text-white px-4 py-2 rounded'>
-					Filter
+					Order
 				</button>
 			</div>
 			<div
-				className={`flex-grow mx-auto w-full flex flex-col overflow-y-auto scroll-container ${
+				className={`bg-gray-100 flex-grow mx-auto w-full flex flex-col overflow-y-auto scroll-container ${
 					recipes && recipes.length > 0 ? "" : "justify-center items-center"
 				} `}
 			>

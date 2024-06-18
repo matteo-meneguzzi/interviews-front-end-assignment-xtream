@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input } from "../components";
+import { Alert, Button, Input } from "../components";
 import { createHandleChange } from "../utils/form";
 import Dropdown from "../components/Dropdown";
 import {
@@ -20,7 +20,7 @@ const AddRecipe = () => {
 		cuisineId: string;
 		dietId: string;
 		difficultyId: string;
-		image: string;
+		image: File | undefined;
 	}>({
 		name: "",
 		instructions: "",
@@ -28,7 +28,7 @@ const AddRecipe = () => {
 		cuisineId: "",
 		dietId: "",
 		difficultyId: "",
-		image: "",
+		image: undefined,
 	});
 
 	const handleChange = createHandleChange(setForm);
@@ -65,45 +65,67 @@ const AddRecipe = () => {
 		}));
 	};
 
+	/* 	const { postData: createRecipe } = useCreateRecipe();
+	 */
+
+	const handleSubmit = async (e: React.FormEvent) => {
+		e.preventDefault();
+		/* const recipeForm: Recipe = {
+			...form,
+			id: recipes?.length
+				? String(recipes?.length + 1)
+				: String(Math.random() + 1),
+		};
+
+		await createRecipe(recipeForm); */
+	};
+
 	return (
-		<main className='flex-grow flex flex-col overflow-hidden'>
-			<div className='p-4 bg-gray-400'>
-				<div className='flex justify-between items-center max-w-xl mx-auto bg-red-400'>
-					<h1 className='text-xl font-bold'>Add a Recipe</h1>
+		<main className='overflow-hidden flex-grow flex flex-col'>
+			<div className='p-4 bg-gray-600'>
+				<div className='flex justify-between items-center max-w-xl mx-auto'>
+					<h1 className='bg-purple-400 p-4 rounded-lg text-xl font-bold'>
+						Add a Recipe
+					</h1>
 				</div>
 			</div>
-			<div className='p-4 bg-blue-400'>
-				<div className='p-8 flex flex-grow overflow-y-auto justify-between items-center max-w-xl mx-auto bg-red-400 h-full'>
-					<div className='bg-gray-200 p-4 shadow-lg rounded-lg h-full overflow-hidden'>
-						<div className='bg-red-200 h-full flex flex-col overflow-y-auto'>
-							<Input
-								value={form.name}
-								placeholder='Enter name'
-								onChange={handleChange}
-								label={"Add a name"}
-								id={"name"}
-							/>
-							<div>
-								<Input
-									value={newIngredient}
-									placeholder='Enter ingredient'
-									onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-										handleNewIngredientChange(e)
-									}
-									label={"Add an ingredient"}
-									id={"ingredients"}
-								/>
-								<button
-									onClick={handleAddIngredient}
-									className='bg-blue-500 text-white px-4 py-2 rounded ml-2'
-								>
-									Add
-								</button>
-							</div>
-							<div className='my-4 min-h-20'>
-								<h2 className='font-bold mb-2'>Ingredients:</h2>
-								<div className='grid grid-cols-4 gap-4'>
-									{form.ingredients.map((ingredient, index) => (
+			<div className='p-4 bg-gray-600 max-h-full flex-grow overflow-hidden'>
+				<div className='p-8 flex flex-col max-w-xl max-h-full mx-auto bg-gray-200 rounded-lg'>
+					<h2 className='text-lg font-bold mb-4'>Recipe Details</h2>
+					<form
+						onSubmit={handleSubmit}
+						className='p-4 flex-grow w-full overflow-y-auto'
+					>
+						<Input
+							value={form.name}
+							placeholder='Enter name'
+							onChange={handleChange}
+							label={"Add a name"}
+							id={"name"}
+						/>
+
+						<Input
+							value={newIngredient}
+							placeholder='Enter ingredient'
+							onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+								handleNewIngredientChange(e)
+							}
+							label={"Add an ingredient"}
+							id={"ingredients"}
+						/>
+						<button
+							type='button'
+							onClick={handleAddIngredient}
+							className='bg-blue-500 text-white px-4 py-2 rounded ml-2'
+						>
+							Add
+						</button>
+
+						<div className='my-4 min-h-20'>
+							<h2 className='font-bold mb-2'>Ingredients:</h2>
+							<div className='grid grid-cols-4 gap-4'>
+								{form.ingredients.length > 0 &&
+									form.ingredients.map((ingredient, index) => (
 										<div
 											key={index}
 											className='col-span-1 bg-gray-300 px-4 py-2 rounded flex justify-between items-center'
@@ -130,22 +152,21 @@ const AddRecipe = () => {
 											</button>
 										</div>
 									))}
-								</div>
+								{form.ingredients.length === 0 && (
+									<div className='w-96'>
+										<Alert type='default' children={"Still no ingredients"} />
+									</div>
+								)}
 							</div>
-							<Input
-								value={form.instructions}
-								placeholder='Enter instructions'
-								onChange={handleChange}
-								label={"Add instructions"}
-								id={"instructions"}
-							/>
-							<Input
-								value={form.image}
-								onChange={handleChange}
-								label={"Add image"}
-								id={"image"}
-								type='file'
-							/>
+						</div>
+						<Input
+							value={form.instructions}
+							placeholder='Enter instructions'
+							onChange={handleChange}
+							label={"Add instructions"}
+							id={"instructions"}
+						/>
+						<div className='max-w-52'>
 							<Dropdown
 								id='cuisineId'
 								value={form.cuisineId}
@@ -171,7 +192,10 @@ const AddRecipe = () => {
 								onChange={handleChange}
 							/>
 						</div>
-					</div>
+						<div className='flex flex-col mt-16 max-w-28 mx-auto'>
+							<Button type='submit' children='Crea' />
+						</div>
+					</form>
 				</div>
 			</div>
 		</main>

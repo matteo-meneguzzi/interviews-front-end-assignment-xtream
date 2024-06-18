@@ -10,9 +10,8 @@ This document outlines the key decisions made during the development of the proj
 4. [API Integration](#api-integration)
 5. [Routing](#routing)
 6. [Styling](#styling)
-7. [Testing](#testing)
-8. [Linting and Formatting](#linting-and-formatting)
-9. [Choices](#choices)
+7. [Linting and Formatting](#linting-and-formatting)
+8. [Development](#development)
 
 ## 1. Project Structure
 
@@ -70,7 +69,7 @@ I decided to use React Router for client-side routing.
 
 ### Rationale
 
-React Router is a poirful and flexible routing library for React applications. It allows for dynamic routing, nested routes, and route parameters, making it easier to manage navigation and URL structure in a single-page application. Its declarative API integrates ill with React's component-based architecture, enhancing code readability and maintainability.
+React Router is a powerful and flexible routing library for React applications. It allows for dynamic routing, nested routes, and route parameters, making it easier to manage navigation and URL structure in a single-page application. Its declarative API integrates ill with React's component-based architecture, enhancing code readability and maintainability.
 
 ## 6. Styling
 
@@ -82,17 +81,7 @@ I decided to use Tailwind CSS for styling.
 
 Tailwind CSS is a utility-first CSS framework that offers a low-level utility classes approach to styling. It allows for rapid prototyping and development with consistent and maintainable styles across the application. Tailwind CSS also provides excellent documentation and community support, making it a suitable choice for this project.
 
-## 7. Testing
-
-### Decision
-
-I decided to use Jest and React Testing Library for testing.
-
-### Rationale
-
-Jest is a poirful testing framework with a great ecosystem, and React Testing Library focuses on testing components in a way that resembles how users interact with them.
-
-## 8. Linting and Formatting
+## 7. Linting and Formatting
 
 ### Decision
 
@@ -101,3 +90,13 @@ I integrated ESLint and Prettier for linting and code formatting.
 ### Rationale
 
 ESLint helps catch potential issues and enforce coding standards, while Prettier ensures consistent code formatting. Using both tools together helps maintain a clean and readable codebase.
+
+## 7. Development
+
+### Decision
+
+I decided to give same effort for styling and structure.
+
+### Rationale
+
+As a FE dev, i would assume is equally important to know both logic (Typescript) and styling (Tailwind / css).

@@ -18,12 +18,15 @@ export const getRecipe = async (): Promise<Recipe[]> =>
 };
 
 
-export const createRecipe = async (recipe: Recipe): Promise<Recipe> =>
+export const createRecipe = async (recipe: FormData): Promise<Recipe> =>
 {
     return handleApiRequest<Recipe>({
         method: 'POST',
         url: '/recipes',
         data: recipe,
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
     });
 };
 

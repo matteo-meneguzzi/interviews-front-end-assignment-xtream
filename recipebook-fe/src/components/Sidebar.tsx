@@ -59,14 +59,6 @@ const Sidebar = ({
 		setCurrentPage(1);
 	};
 
-	/* const handleChange = (
-		event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-	) => {
-		const { id, value } = event.target;
-		const newFormData = { ...form, [id]: value };
-		setForm(newFormData);
-	}; */
-
 	const handleChange = createHandleChange(setForm);
 
 	return (
@@ -76,8 +68,7 @@ const Sidebar = ({
 			} bg-gray-200 flex flex-col`}
 		>
 			<div className='p-4 h-full'>
-				{/* Section 1 (2/5 of height) */}
-				<div className='h-full bg-blue-200 p-4 flex flex-col flex-grow'>
+				<div className='h-full bg-gray-200 p-4 flex flex-col flex-grow'>
 					{/* Section 1: Clickable Icon */}
 					<div
 						className={`${

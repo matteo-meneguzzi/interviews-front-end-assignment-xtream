@@ -1,20 +1,20 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
-const useFetchData = <T> (fetchFunction: () => Promise<T>) =>
+const usePostData = <T, R> (postFunction: (data: T) => Promise<R>) =>
 {
-    const [data, setData] = useState<T | undefined>(undefined);
+    const [data, setData] = useState<R | undefined>(undefined);
     const [error, setError] = useState<string | undefined>(undefined);
     const [loading, setLoading] = useState<boolean>(false);
 
     //By wrapping fetchData with useCallback, we ensure that React does not create a new function instance of fetchData on every render
     // unless fetchFunction changes. 
 
-    const fetchData = useCallback(async () =>
+    const postData = useCallback(async (payload: T) =>
     {
         setLoading(true);
         try
         {
-            const result = await fetchFunction();
+            const result = await postFunction(payload);
             setData(result);
         } catch (error)
         {
@@ -30,14 +30,9 @@ const useFetchData = <T> (fetchFunction: () => Promise<T>) =>
         {
             setLoading(false);
         }
-    }, [fetchFunction]);
+    }, [postFunction]);
 
-    useEffect(() =>
-    {
-        fetchData();
-    }, [fetchData]);
-
-    return { data, error, loading, fetchData };
+    return { data, error, loading, postData };
 };
 
-export default useFetchData;
+export default usePostData;

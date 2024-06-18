@@ -34,32 +34,7 @@ const Paginator = ({ currentPage, setCurrentPage, nPages }: PaginatorProps) => {
 	const pageNumbers = getPageNumbers();
 
 	return (
-		<div className='flex justify-center p-4 bg-gray-200'>
-			{/* Placeholder for paginator */}
-			{/* <button
-				onClick={prevPage}
-				className='bg-blue-500 text-white px-4 py-2 rounded'
-			>
-				Previous
-			</button>
-			{pageNumbers.map((pgNumber) => (
-				<button
-					key={pgNumber}
-					onClick={() => setCurrentPage(pgNumber)} // Click event handler for setting the current page
-					className={`${
-						currentPage == pgNumber ? "text-blue-500" : "text-grey-800"
-					} p-4`}
-				>
-					{pgNumber}
-				</button>
-			))}
-			<button
-				onClick={nextPage}
-				className='bg-blue-500 text-white px-4 py-2 rounded ml-2'
-			>
-				Next
-			</button> */}
-
+		<div className='flex justify-center p-4'>
 			<nav aria-label='Page navigation example'>
 				<ul className='inline-flex -space-x-px text-sm'>
 					<li>
